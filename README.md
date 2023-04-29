@@ -1,6 +1,5 @@
-Rotating Clock + Planetary Tracking
+GSYNC Application
 -------------------------------------------
-A rotating clock with Planetary positioning API using the Swiss Ephemeris.
 
 ## Installation
 
