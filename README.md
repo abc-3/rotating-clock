@@ -1,29 +1,16 @@
-Rotating Clock + Planetary Tracking
+GSYNC Application
 -------------------------------------------
-A rotating clock with Planetary positioning API using the Swiss Ephemeris.
 
-## Installation
-
+### Installation
 Ensure you have a recent version of [node & npm](https://nodejs.org/en/download/)
-
 ```
 npm install
 ```
-
-## Build
-
-To build for distribution:
-
+To build for distribution, final output will be dropped into the [/dist/](./dist) folder:
 ```
 npm run build
 ```
-
-All of the final output will be dropped into the [/dist/](./dist) folder.
-
-## Server
-
 Run a local server.
-
 ```
 npm run serve
 ```
