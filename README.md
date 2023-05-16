@@ -1,4 +1,4 @@
-GSYNC Application
+GSYNC Clock
 -------------------------------------------
 
 ### Installation
