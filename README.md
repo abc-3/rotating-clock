@@ -1,7 +1,7 @@
-GSYNC Clock
+gSync clock
 -------------------------------------------
 
-### Installation
+### installation
 Ensure you have a recent version of [node & npm](https://nodejs.org/en/download/)
 ```
 npm install
