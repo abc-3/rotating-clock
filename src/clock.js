@@ -27,14 +27,27 @@ function draw() {
     $("#minute").append("<li data-item=" + x + ">" + x + "</li>");
   }
   for (i = 1; i <= DD; i++) {
-    $("#day").append("<li data-item=" + i + ">" + i + "</li>");
+    let x = i < 10 ? "0"+i : i;
+    $("#day").append("<li data-item=" + x + ">" + x + "</li>")
   }
   for (i = 1; i <= 24; i++) {
-    let x = i % 12 + 1
+    // let x = i % 12 + 1
+    x = i < 10 ? "0"+i : i;
     $("#hour").append("<li data-item=" + x + ">" + x + "</li>");
   }
   for (i = 1; i <= 12; i++) {
-    $("#month").append("<li data-item=" + i + ">" + i + "</li>");
+    let x = i < 10 ? "0"+i : i;
+    $("#month").append("<li data-item=" + x + ">" + x + "</li>")
+  }
+  for (i = 5; i <= 360; i+=5) {
+    let x = i < 10 ? "00"+i : i;
+    x = i < 100 ? "0"+i : i;
+    if (i == 5) {
+      $("#year").append("<li data-item=" + i + ">***</li>");
+    }
+    else {
+      $("#year").append("<li data-item=" + x + ">" + x + "</li>");
+    }
   }
 }
 
@@ -61,6 +74,7 @@ function set_time() {
   const day_deg = (360 / DD);
   const hour_deg = 15;
   const minsec_deg = 6;
+  const year_deg = 5;
   $("#second li").each(function (index) {
     $(this).css({
       transform:
@@ -91,12 +105,17 @@ function set_time() {
         "rotateZ(" + month_deg * index + "deg) translateX(" + Number(80) + "px)"
     });
   });
+  $("#year li").each(function (index) {
+    $(this).css({
+      transform:
+        "rotateZ(" + year_deg * index + "deg) translateX(" + Number(230) + "px)"
+    });
+  });
 }
 
 //TIMER
 function sec(ts, timer) {
   TS = ts % 60;
-  if (ts == 0 && timer) min(0, timer);
   deg = (360 / 60) * ts;
   $("#second li").removeClass("active");
   $("#second li").eq(TS).addClass("active");
@@ -110,7 +129,6 @@ function sec(ts, timer) {
 
 function min(tm, timer) {
   TM = tm % 60;
-  if (tm == 0 && timer) hour(0, timer);
   deg = (360 / 60) * tm;
   $("#minute li").removeClass("active");
   $("#minute li").eq(TM).addClass("active");
@@ -125,8 +143,8 @@ function min(tm, timer) {
 function day(td, days, timer) {
   TD = td % days;
   deg = (360 / days) * td;
-  $("#day li").removeClass("date_active");
-  $("#day li").eq(TD).addClass("date_active");
+  $("#day li").removeClass("active");
+  $("#day li").eq(TD).addClass("active");
   $("#day").css({ transform: "rotateZ(-" + deg + "deg)" });
   td++;
   if (timer)
@@ -151,8 +169,8 @@ function hour(th, timer) {
 function month(tm, timer) {
   TM = tm % 12;
   deg = (360 / 12) * tm;
-  $("#month li").removeClass("date_active");
-  $("#month li").eq(TM).addClass("date_active");
+  $("#month li").removeClass("active");
+  $("#month li").eq(TM).addClass("active");
   $("#month").css({ transform: "rotateZ(-" + deg + "deg)" });
   tm++;
   if (timer)
@@ -161,11 +179,17 @@ function month(tm, timer) {
     }, TIME * 120000);
 }
 
+function year(deg, timer) {
+  $("#year li").removeClass("active");
+  $("#year li").eq(0).addClass("active");
+  $("#year").css({ transform: "rotateZ(-" + deg + "deg)" });
+}
+
 //CLOCK
 function clock() {
     d = new Date();
     D = d.getDate()-1;
-    H = d.getHours()-2;
+    H = d.getHours();
     MM = d.getMinutes();
     S = d.getSeconds();
     M = d.getMonth();
@@ -176,9 +200,45 @@ function clock() {
     hour(H, 0);
     min(MM, 0);
     sec(S, 0);
+    year(0, 0);
     setTimeout(function () {
 	clock();
     }, 1000);
+}
+
+function center() {
+  // 1 second delay - change to year
+  // setTimeout(function(){
+  //   console.log("Change to time center.");
+  //   $('h1 span').fadeOut("slow", function() {
+  //     $(this).text('');
+  //   $('h1').fadeOut("slow", function() {
+  //     $(this).text('');
+  //   }).fadeIn();
+  //   }).fadeIn(); 
+  //   $('h1').fadeIn("slow", function() {
+  //     $(this).css("fontSize", "32px");
+  //     $(this).css("left", "50.3%");
+  //     $(this).css("top", "50.3%");
+  //     $(this).text(Y);
+  //   }); 
+  // }, 4000);
+
+  setTimeout(function(){
+    console.log("Change to time center.");
+    $('h1').fadeOut("slow", function() {
+      $(this).text('');
+    }).fadeIn();
+    $('h1 span').fadeOut("slow", function() {
+      $(this).text('');
+    }).fadeIn(); 
+    $('h1').fadeIn("slow", function() {
+      $(this).css("fontSize", "96px");
+      $(this).css("left", "50%");
+      $(this).css("top", "50%");
+      $(this).text("⏚");
+    }); 
+  }, 5000);
 }
 
 $(document).ready(function () {
@@ -186,10 +246,13 @@ $(document).ready(function () {
   set_time();
   //CLOCK
   clock();
+  center();
   //LIGHT
   $("h1").click(function () {
     $(this).toggleClass("off");
     $("body").toggleClass("off");
     $("li").toggleClass("off");
   });
+
 });
+

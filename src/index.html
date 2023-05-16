@@ -2,12 +2,19 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>G-sync</title>
+  <title>gSync</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.131.2/build/three.min.js"></script>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Mono'><link rel="stylesheet" href="./style.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-<h1 class="off">G<span>sync</span></h1>
+  <!-- <h1 id="center" class="off"><span>2023</span></h1> -->
+  <!-- <h1 id="center" class="off">🌖</h1> -->
+<h1 id="center" class="off">G<span>sync</span></h1>
+<!-- <h1 id="center" class="off"></span></h1>  -->
 <div id="clock">
   <ul id="second">
   </ul>
@@ -19,8 +26,31 @@
   </ul>
   <ul id="month">
   </ul> 
-</div>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <ul id="year">
+  </ul> 
+  <div class="sun">
+		<canvas id="sun" width="100" height="100"></canvas>
+	</div>
+  <div class="moon">
+		<canvas id="moon" width="100" height="100"></canvas>
+	</div>
+  <div class="mercury">
+		<canvas id="mercury" width="100" height="100"></canvas>
+	</div>
+	<div class="venus">
+		<canvas id="venus" width="100" height="100"></canvas>
+	</div>
+  <div class="mars">
+		<canvas id="mars" width="100" height="100"></canvas>
+	</div>
+  <div class="jupiter">
+		<canvas id="jupiter" width="100" height="100"></canvas>
+	</div>
+  <div class="saturn">
+		<canvas id="saturn" width="100" height="100"></canvas>
+	</div>
   <script  src="./clock.js"></script>
+</div>
+
 </body>
 </html>
