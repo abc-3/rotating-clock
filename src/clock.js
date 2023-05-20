@@ -207,22 +207,6 @@ function clock() {
 }
 
 function center() {
-  // 1 second delay - change to year
-  // setTimeout(function(){
-  //   console.log("Change to time center.");
-  //   $('h1 span').fadeOut("slow", function() {
-  //     $(this).text('');
-  //   $('h1').fadeOut("slow", function() {
-  //     $(this).text('');
-  //   }).fadeIn();
-  //   }).fadeIn(); 
-  //   $('h1').fadeIn("slow", function() {
-  //     $(this).css("fontSize", "32px");
-  //     $(this).css("left", "50.3%");
-  //     $(this).css("top", "50.3%");
-  //     $(this).text(Y);
-  //   }); 
-  // }, 4000);
 
   setTimeout(function(){
     console.log("Change to time center.");
@@ -238,7 +222,7 @@ function center() {
       $(this).css("top", "50%");
       $(this).text("⏚");
     }); 
-  }, 5000);
+  }, 3000);
 }
 
 $(document).ready(function () {
