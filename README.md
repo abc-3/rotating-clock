@@ -1,5 +1,11 @@
-gSync clock
+G-Sync: Galactic Synchronicity
 -------------------------------------------
+
+## Introduction
+
+This repository contains development code, design engineering for a timepiece displaying planetary harmonics and alignment patterns, from either a geoconcentric (⏚) or heliocentric (☉) reference point. 
+
+## Installation
 
 Ensure you have a recent version of [node & npm](https://nodejs.org/en/download/)
 ```
