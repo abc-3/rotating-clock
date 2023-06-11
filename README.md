@@ -1,4 +1,4 @@
-G-Sync: Galactic Synchronicity
+G-Sync
 -------------------------------------------
 
 ## Introduction
