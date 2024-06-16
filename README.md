@@ -1,6 +1,6 @@
-G-Sync Timepiece
+Rotating Timepiece
 -------------------------------------------
 
-Timepiece to display global positions relative to the observer, with toggle for relative information.
+Timepiece to display time & positions relative to the observer via rotating dials.
 
-Uses system time according to user's timezone, along with the Swiss JPL Ephemeris for positioning.
+Queries for planetary positions according to time-zone location defaults.
